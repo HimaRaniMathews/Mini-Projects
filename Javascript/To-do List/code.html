@@ -1,0 +1,59 @@
+<html>
+<head>
+     <title>To Do List</title>
+     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="grid">
+        <div id="item">
+            <h1 id="t1" align=center >TO DO LIST</h1>
+            <hr style="height:5px;background-color:black;border: 0px;border-radius: 12px;">
+            <div align=center>
+               <br><br>
+                        <input type="text" id="task"  placeholder="Enter the task"  required>
+                        <i class="fa fa-plus-circle" style="font-size: 40px;padding: 1px;" onclick="f1()"  aria-hidden="true" ></i>
+                        <i class="fa fa-times-circle" style="font-size: 40px;padding: 1px;" onclick="f2()" aria-hidden="true"></i>
+                <br><br>
+            </div>
+           <div class="row"> 
+			<ul id="list_item"> 
+			</ul> 
+		</div> 
+            <div id="ale" class="alert" style="visibility:hidden">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>Oops! Enter a task <img src="img/i.png" style="float: right;height: 40px;width: 40px" ></strong>
+            </div>
+        </div>
+        <br><br><br><br>
+    </div>
+    <script>
+    function f1()
+        {
+     let item = document.getElementById("task"); 
+  let list_item = document.getElementById("list_item"); 
+  if(item.value != ""){ 
+      let make_li = document.createElement("LI"); 
+      make_li.appendChild(document.createTextNode(item.value)); 
+      list_item.appendChild(make_li); 
+      item.value="";
+      make_li.onclick = function(){ 
+        this.parentNode.removeChild(this); 
+    
+      } 
+  
+  } 
+  else{
+             document.getElementById("ale").style.visibility="visible";
+        }
+  
+} 
+        function f2()
+        {
+            document.getElementById("task").value=""; 
+            
+        }
+        
+    </script>
+</body> 
+</html>
